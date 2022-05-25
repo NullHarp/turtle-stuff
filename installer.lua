@@ -1,25 +1,30 @@
+
+local function DownloadedFile(file_name,directory)
+    if directory == nil then
+        directory = "/"
+    end
+    local file_code = http.get("https://raw.githubusercontent.com/NullHarp/turtle-stuff/"..file_name)
+    local file = fs.open(directory..file_name,"w")
+    file.write(file_code)
+end
+
 print("Drone installation program engaged")
 sleep(1)
 fs.makeDir("system/")
 print("Created system directory")
 sleep(1)
 
-shell.run("pastebin","get","JWWq1JZF","bootup_sequence.lua")
-fs.move("bootup_sequence.lua","system/bootup_sequence.lua")
+DownloadedFile("utility.lua","system/")
 sleep(1)
-shell.run("pastebin","get","63jzXpZy","receiveCommand.lua")
-fs.move("receiveCommand.lua","system/receiveCommand.lua")
+DownloadedFile("startup.lua",nil)
 sleep(1)
-shell.run("pastebin","get","MypYjxrL","receiveFile.lua")
-fs.move("receiveFile.lua","system/receiveFile.lua")
+DownloadedFile("receiveCommand.lua","system/")
 sleep(1)
-shell.run("pastebin","get","hWurwqU5","turtleRemoteControl.lua")
-fs.move("turtleRemoteControl.lua","system/turtleRemoteControl.lua")
+DownloadedFile("receiveFile.lua","system/")
 sleep(1)
-shell.run("pastebin","get","6c7zHh8r","utility.lua")
-fs.move("utility.lua","system/utility.lua")
+DownloadedFile("turtleRemoteControl.lua","system/")
 sleep(1)
-shell.run("pastebin","get","WyCk7SVx","startup.lua")
+DownloadedFile("bootup_sequence.lua","system/")
 print("Final phase of drone install, enter a name.")
 print("Name: ")
 local name = read()
