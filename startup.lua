@@ -3,6 +3,7 @@ local oldPull = os.pullEvent;
 os.pullEvent = os.pullEventRaw;
 -- Anti Termination Code
 
+rednet.open("left")
 local util = require("system.utility")
 
 -- Anti Termination Code
@@ -11,4 +12,4 @@ os.pullEvent = oldPull;
 shell.openTab("system/turtleRemoteControl.lua")
 shell.openTab("system/receiveFile.lua")
 shell.openTab("system/receiveCommand.lua")
-shell.run("system/bootup_sequence")
+--shell.run("system/bootup_sequence")
