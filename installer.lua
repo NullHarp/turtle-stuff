@@ -3,7 +3,8 @@ local function DownloadedFile(file_name,directory)
     if directory == nil then
         directory = "/"
     end
-    local file_code = http.get("https://raw.githubusercontent.com/NullHarp/turtle-stuff/"..file_name)
+    local file_code = http.get("https://raw.githubusercontent.com/NullHarp/turtle-stuff/main/"..file_name)
+    file_code = file_code.readAll()
     local file = fs.open(directory..file_name,"w")
     file.write(file_code)
 end
