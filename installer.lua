@@ -7,6 +7,8 @@ local function DownloadedFile(file_name,directory)
     file_code = file_code.readAll()
     local file = fs.open(directory..file_name,"w")
     file.write(file_code)
+    file.close()
+    print("Successfuly downloaded and saved "..file_name)
 end
 
 print("Drone installation program engaged")
