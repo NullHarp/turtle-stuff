@@ -11,4 +11,4 @@ os.pullEvent = oldPull;
 shell.openTab("system/turtleRemoteControl.lua")
 shell.openTab("system/receiveFile.lua")
 shell.openTab("system/receiveCommand.lua")
---shell.run("system/bootup_sequence")
+shell.run("system/bootup_sequence")
